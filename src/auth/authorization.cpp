@@ -1,5 +1,5 @@
 #include "calvinc_tools/auth/authorization.hpp"
-#include "auth_context.hpp"
+#include "calvinc_tools/auth/auth_context.hpp"
 
 namespace calvinc::tools::auth {
 

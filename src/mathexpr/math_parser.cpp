@@ -338,7 +338,7 @@ double MathParser::parseVariable() {
     // Convert to lowercase for lookup
     std::string var_lower = var;
     for (auto& ch : var_lower) {
-        ch = std::tolower(ch);
+        ch = (char)std::tolower((unsigned char)ch);
     }
     
     // Check for functions

@@ -11,17 +11,13 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Strict warning flags
 if(MSVC)
-    add_compile_options(/W4 /WX)
+    add_compile_options(/W4 /WX /Zc:__cplusplus)
 else()
     add_compile_options(-Wall -Wextra -Werror)
 endif()
 
 # Enable CTest
 enable_testing()
-
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
 
 configure_file(
     ${CMAKE_CURRENT_SOURCE_DIR}/include/calvinc_tools/version_config.hpp.in

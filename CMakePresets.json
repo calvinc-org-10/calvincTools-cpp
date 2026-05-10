@@ -1,0 +1,63 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 16,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "msvc-qt",
+      "displayName": "MSVC + Qt msvc2022_64",
+      "description": "Visual Studio 2026 generator with Qt MSVC kit",
+      "generator": "Visual Studio 18 2026",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/build/msvc",
+      "cacheVariables": {
+        "CMAKE_PREFIX_PATH": "D:/AppDev/Qt6/6.11.0/msvc2022_64",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "mingw-qt",
+      "displayName": "MinGW + Qt mingw_64",
+      "description": "Ninja generator with Qt MinGW kit and compiler toolchain from Qt",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/mingw",
+      "environment": {
+        "PATH": "D:/AppDev/Qt6/Tools/mingw1310_64/bin;$penv{PATH}"
+      },
+      "cacheVariables": {
+        "CMAKE_PREFIX_PATH": "D:/AppDev/Qt6/6.11.0/mingw_64",
+        "CMAKE_C_COMPILER": "D:/AppDev/Qt6/Tools/mingw1310_64/bin/gcc.exe",
+        "CMAKE_CXX_COMPILER": "D:/AppDev/Qt6/Tools/mingw1310_64/bin/g++.exe",
+        "CMAKE_MAKE_PROGRAM": "D:/AppDev/Qt6/Tools/Ninja/ninja.exe",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "build-msvc",
+      "displayName": "Build (MSVC)",
+      "configurePreset": "msvc-qt"
+    },
+    {
+      "name": "build-mingw",
+      "displayName": "Build (MinGW)",
+      "configurePreset": "mingw-qt"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "test-msvc",
+      "displayName": "Test (MSVC)",
+      "configurePreset": "msvc-qt"
+    },
+    {
+      "name": "test-mingw",
+      "displayName": "Test (MinGW)",
+      "configurePreset": "mingw-qt"
+    }
+  ]
+}

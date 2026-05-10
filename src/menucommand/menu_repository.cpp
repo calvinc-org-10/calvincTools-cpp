@@ -1,6 +1,7 @@
 #include "calvinc_tools/menucommand/menu_repository.hpp"
 #include <QSqlQuery>
 #include <QSqlError>
+#include <QSqlRecord>
 #include <QDebug>
 
 namespace calvinc::tools::menucommand {
